@@ -11,22 +11,20 @@ if __name__ == "__main__":
     with sq3.connect(**config) as conn:
 
         sql = """CREATE TABLE IF NOT EXISTS user (
-                    userId INTEGER PRIMARY KEY AUTOINCREMENT, 
-                    user_name TEXT NOT NULL);"""
-        sqlh.sql_execute_script(conn, sql)
+                    userId INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, 
+                    user_name TEXT NOT NULL UNIQUE);"""
+        sqlh.sql_execute_script(CONN=conn, SQL=sql)
 
-        sql = """INSERT INTO user (userId, user_name) VALUES (1, 'Bob');
-                 INSERT INTO user (userId, user_name) VALUES (2, 'Alice');
-                 INSERT INTO user (userId, user_name) VALUES (3, 'Mike');"""
+        sql = """INSERT INTO user (user_name) VALUES ('Peter'), ('James'),('John');"""
 
-        sqlh.sql_execute_script(conn, sql)
+        sqlh.sql_execute_script(CONN=conn, SQL=sql)
 
-        user = [{'user_name':'Peter'},
-                {'user_name':'James'},
-                {'user_name':'John'}]
+        user = [{'user_name':'Julie'},
+                {'user_name':'Becky'},
+                {'user_name':'Chris'}]
 
-        sqlh.sql_bulk_insert(conn, "user", user)
+        sqlh.sql_bulk_insert(CONN=conn, TABLE="user", DATA=user)
 
         sql = "SELECT * FROM user;"
-        users = sqlh.sql_query(conn, sql)
-        print(f'{users}')
+        results = sqlh.sql_query(CONN=conn, SQL=sql)
+        print(f'{results}')

@@ -143,16 +143,16 @@ if __name__ == '__main__':
 
         #create the user table
         sql="""CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_name TEXT NOT NULL);"""
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    user_name TEXT NOT NULL UNIQUE);"""
         sql_execute_script(conn, sql)
 
         #insert some users
-        sql="""INSERT INTO users (user_name) VALUES ('Peter'), ('Paul'), ('John');"""
+        sql="""INSERT INTO users (user_name) VALUES ('Peter'), ('James'), ('John');"""
         sql_execute_script(conn, sql)
         
         #test bulk insert
-        users=[{"user_name": "Alice"}, {"user_name": "Bob"}]
+        users=[{"user_name": "Julie"}, {"user_name": "Becky"}, {"user_name": "Chris"}]
         sql_bulk_insert(conn, "users", users)
 
         #query the users
