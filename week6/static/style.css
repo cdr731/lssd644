@@ -1,0 +1,23 @@
+  
+        h1,h2 {
+            color:blue;
+            border-bottom: 1px solid black;
+        }
+
+        h3 {
+            color:darkred;
+
+        }
+        p {
+            color:green;
+        }
+        .red-text {
+            color:red;           
+        }
+        .blue-text {
+            color:blue;
+        }
+        .red-background {
+            color:white;
+            background-color:green;
+        }
