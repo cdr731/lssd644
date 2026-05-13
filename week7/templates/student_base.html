@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Reference for other pages -->
+    <title>{% block title %} User System {% endblock %}</title>
+
+    <!-- Reference the cascaded style sheet in static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- header starts here -->
+<header>
+    <div>
+        <nav>
+            <strong>
+                <em>
+                    User Management
+                </em> 
+            </strong>  |
+
+        </nav>
+    </div>
+</header>
+<!-- header ends here -->
+
+<!-- Unique content starts here -->
+{% block content %} {% endblock %}
+<!-- Unique content ends here -->
+
+<!-- Footer starts here -->
+<footer>
+    <p class="blue-background">&copy; 2026 Don's Web Page.
+        <!-- Jinja substitution of the current date and time -->
+        <!-- <h4> -->
+            <br>
+            {{ current_dt }}
+        <!-- </h4> -->
+    </p>
+
+</footer>
+
+</body>
+</html>

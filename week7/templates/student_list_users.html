@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Start the head meta data here -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Jinja substitution for the page_title -->
+    <title>{{ page_title }}</title>
+
+    <!-- Reference the cascaded style sheet in static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- End the head meta data here -->
+
+</head>
+
+<body>
+
+    <!-- The body of the content starts here -->
+
+    <header>
+
+        <!-- The header starts here -->
+
+         <h3>
+
+ 
+
+         </h3>
+
+        <hr>
+        <h1>
+
+            <!-- Jinja substitution for the page_name -->
+            {{ page_name }}
+
+        </h1>
+        <br>
+        <br>
+
+        <!-- End the header here -->
+
+    </header>
+
+    <h2>
+
+        <!-- Jinja substitution -->
+
+        {{ loop_title }}
+    </h2>
+    <br>
+    
+    <!-- Start a Jinja loop -->
+    {% for user in users %}
+
+        <!-- Use the passed argument structure and loop the content -->
+        {% if user[0] != 1 %}
+        <div>
+            <h3>
+
+                <!-- Jinja substitute values from loop -->
+
+              Id: {{user[0]}}
+            </h3>
+            <p>
+
+                <!-- Jinja substitute value from loop -->
+
+             User: {{user[1]}}
+            </p>
+        </div>
+        {% endif %}
+        <br>
+        <hr>
+    {% endfor %}
+
+    <!-- end the Jinja loop -->
+    <hr>
+
+    <!-- Footer starts here -->
+    <footer>
+        <p class="blue-background">&copy; 2026 Chris' Web Page.
+                   <!-- Jinja substitution of the current date and time -->
+
+            <!-- <h4> -->
+                <br>
+                {{ current_dt }}
+            <!-- </h4> -->
+        </p>
+
+    </footer>
+    <!-- Footer end here -->
+
+</body>

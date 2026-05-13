@@ -1,0 +1,42 @@
+<!-- Pull the html fro, base.html -->
+{% extends 'student_base.html' %}
+
+{% block title %} All Users {% endblock %}
+<!-- Unique content start -->
+{% block content %} 
+    <h1>
+        Users
+    </h1>
+
+    <!-- Start a Jinja loop -->
+    {% for user in users %}
+
+        <!-- Use the passed argument structure and loop the content -->
+ 
+        <div>
+                <h3>
+                Id: 
+                </h3>
+                <h2>
+                            <!-- Jinja substitute values from loop -->
+                            {{ user[0] }}
+                </h2>
+            <p>
+                <!-- Jinja substitute value from loop -->
+                <h3>
+                User:  
+                </h3>
+                <h2>
+                    {{ user[1] }}
+                </h2>
+            </p>
+        </div>
+
+        <br>
+        <hr>
+    {% endfor %}
+
+    <!-- end the Jinja loop -->
+{% endblock %}
+<!-- **Add code here -->
+ <!-- Unique content ends here -->
