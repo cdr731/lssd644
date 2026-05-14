@@ -13,12 +13,26 @@
             {{ page_name }}
         </h1>
         <br>
+        <nav>
+            <a href="#about">About Me</a> |
+            <a href="#messages">Current Messages</a> |
+            <a href="#contact">Contact Me</a>
+        </nav>
         <br>
     </header>
-
-    <h2>
-        Current Messages
-    </h2>
+    <section id="about">
+        <h2>
+            About Me
+        </h2>
+        <p>I enjoy television shows and movies from the 1970s and 1980s. My favorite movies of the 1970s are 'The Warriors' and 'Saturday Night Fever.'</p>
+        <p>My favorite movie from the 1980s is 'This is Spinal Tap.' I also enjoy 'The Princess Bride' even though it is 'inconceivable' to most people.</p>
+        <br>
+    </section>
+    <section id="messages">
+        <h2>
+            Current Messages
+        </h2>
+    </section>
     
     {% for message in messages %}
         <div>
@@ -32,6 +46,16 @@
         <br>
         <hr>
     {% endfor %}
-    <hr>
-
+    <section id="contact">
+        <br>
+        <h2>Contact Me</h2>
+        <form>
+            <p>Subscribe to my newsletter:</p>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Join List</button>
+        </form>
+    </section>
+    <footer>
+        <p>&copy; Chris Reutz' Celebrity Enterprises</p>
+    </footer>
 </body>
