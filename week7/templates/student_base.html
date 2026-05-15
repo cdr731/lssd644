@@ -7,21 +7,37 @@
     <title>{% block title %} User System {% endblock %}</title>
 
     <!-- Reference the cascaded style sheet in static -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  -->
+<style>
+    .site-header-footer {
+        background-color: lightblue;
+        /* var(--pico-primary-background); */
+        color: var(--pico-primary-inverse);
+        padding: 2rem 0;
+        margin-top: 4rem;
+        text-align: center;
+    }
+</style>
+
 </head>
 
 <body>
-
+<main class="container">
     <!-- header starts here -->
 <header>
-    <div>
+    <div class="site-header-footer">
         <nav>
-            <strong>
+            <!-- <strong>
                 <em>
                     User Management
                 </em> 
-            </strong>  |
-
+            </strong>  | -->
+            <a href="/users"><strong>Users</strong></a>
+            <a href="/posts"><strong>Posts</strong></a>
         </nav>
     </div>
 </header>
@@ -32,7 +48,7 @@
 <!-- Unique content ends here -->
 
 <!-- Footer starts here -->
-<footer>
+<footer class="site-header-footer">
     <p class="blue-background">&copy; 2026 Don's Web Page.
         <!-- Jinja substitution of the current date and time -->
         <!-- <h4> -->
@@ -40,8 +56,7 @@
             {{ current_dt }}
         <!-- </h4> -->
     </p>
-
 </footer>
-
+</main>
 </body>
 </html>

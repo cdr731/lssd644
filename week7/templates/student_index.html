@@ -1,0 +1,44 @@
+
+<!-- Pull the html fro, base.html -->
+{% extends 'student_base.html' %}
+
+{% block title %} {{ title }}  {% endblock %}
+
+<!-- Unique content start -->
+{% block content %} 
+
+    <h1>
+        Users
+    </h1>
+    
+        <!-- ADD A CLASS TO THE TABLE -->
+        <table class="striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+
+            <tbody>
+        <!-- Start a Jinja loop -->
+
+            {% for user in users %}
+
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                </tr>
+
+                <!-- end the Jinja loop -->
+
+            {% endfor %}
+
+        </tbody>
+
+        </table>
+    
+ {% endblock %}
+
+
+ 
