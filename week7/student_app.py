@@ -1,3 +1,6 @@
+# Lab 7-9 assignment by Chris Reutz
+# Main Python application
+
 from flask import Flask,render_template,url_for,flash,redirect
 from datetime import datetime
 import sqlite3 as sq
@@ -42,7 +45,7 @@ if __name__ == "__main__":
 
                     #Call the users view    
                     sqlh.sql_execute_script(CONN=conn,SQL=sql_script)
-                    sql='''SELECT * FROM vw_users ORDER BY 2'''
+                    sql='''SELECT * FROM vw_users ORDER BY 1'''
                     users=sqlh.sql_query(CONN=conn,
                                            SQL=sql)
                     
@@ -55,5 +58,3 @@ if __name__ == "__main__":
                 current_dt=now.strftime("%m/%d/%Y %H:%M")
 
                 app.run(host='0.0.0.0', port=5000, debug=True)
-
-     

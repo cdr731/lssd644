@@ -1,3 +1,6 @@
+# Lab 7-9 assignment by Chris Reutz
+# Sqlite helper module
+
 from dotenv import dotenv_values
 from datetime import datetime
 from tabulate import tabulate
