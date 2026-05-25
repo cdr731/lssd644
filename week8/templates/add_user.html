@@ -1,0 +1,19 @@
+<!--Lab 8 assignment by Chris Reutz--> 
+<!--Add user page--> 
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>
+    Create New User
+</h1>
+<div>
+<form action="{{ url_for('add_user') }}" method="POST">
+        <label for="user_name">Username</label>
+        <input type="text" id="user_name" name="user_name" placeholder="New User" required>
+        <button type="submit" class="contrast">Add User</button>
+    </form>
+</div>
+
+{% endblock %}

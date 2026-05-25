@@ -1,0 +1,67 @@
+<!--Lab 8 assignment by Chris Reutz--> 
+<!--Base HTML page with Pico CSS link--> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Reference for other pages -->
+    <title>{% block title %} User System {% endblock %}</title>
+
+    <!-- Reference the cascaded style sheet in static -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">  -->
+<style>
+    .site-header-footer {
+        background-color: lightblue;
+        /* var(--pico-primary-background); */
+        color: var(--pico-primary-inverse);
+        padding: 2rem 0;
+        margin-top: 4rem;
+        text-align: center;
+    }
+</style>
+
+</head>
+
+<body>
+<main class="container">
+    <!-- header starts here -->
+<header>
+    <div class="site-header-footer">
+        <nav>
+            <!-- <strong>
+                <em>
+                    User Management
+                </em> 
+            </strong>  | -->
+            <a href="/users"><strong>Users</strong></a>
+            <a href="/posts"><strong>Posts</strong></a>
+            <a href="/new_user"><strong>New User</strong></a>
+            <a href="/new_post"><strong>New Post</strong></a>
+        </nav>
+    </div>
+</header>
+<!-- header ends here -->
+
+<!-- Unique content starts here -->
+{% block content %} {% endblock %}
+<!-- Unique content ends here -->
+
+<!-- Footer starts here -->
+<footer class="site-header-footer">
+    <p class="blue-background">&copy; 2026 Chris' Web Page.
+        <!-- Jinja substitution of the current date and time -->
+        <!-- <h4> -->
+            <br>
+            {{ current_dt }}
+        <!-- </h4> -->
+    </p>
+</footer>
+</main>
+</body>
+</html>

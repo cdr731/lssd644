@@ -1,0 +1,45 @@
+<!--Lab 8 assignment by Chris Reutz--> 
+<!--Blog posts Jinja extension the base HTML page--> 
+
+<!-- Pull the html fro, base.html -->
+{% extends 'base.html' %}
+
+{% block title %} {{ title }}  {% endblock %}
+
+<!-- Unique content start -->
+{% block content %} 
+
+    <h1>
+        Posts
+    </h1>
+    
+        <!-- ADD A CLASS TO THE TABLE -->
+        <table class="striped">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>User</th>
+                <th>Posts</th>
+            </tr>
+            </thead>
+
+            <tbody>
+        <!-- Start a Jinja loop -->
+
+            {% for post in posts %}
+
+                <tr>
+                    <td>{{ post[2] }}</td>
+                    <td>{{ post[1] }}</td>
+                    <td>{{ post[3] }}</td>
+                </tr>
+
+                <!-- end the Jinja loop -->
+
+            {% endfor %}
+
+        </tbody>
+
+        </table>
+    
+ {% endblock %}

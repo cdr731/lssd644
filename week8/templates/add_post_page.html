@@ -1,0 +1,21 @@
+<!--Lab 8 assignment by Chris Reutz--> 
+<!--Add post page--> 
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>
+    Create New Post
+</h1>
+<div>
+<form action="{{ url_for('add_post_page') }}" method="POST">
+        <label for="userId">User Id</label>
+        <input type="text" id="userId" name="userId" placeholder="User Id" required>
+        <label for="userId">Post Message</label>
+        <input type="text" id="post_message" name="post_message" placeholder="New Message" required>        
+        <button type="submit" class="contrast">Add Post</button>
+    </form>
+</div>
+
+{% endblock %}
