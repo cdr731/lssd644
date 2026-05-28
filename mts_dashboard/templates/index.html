@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>San Diego MTS Transit Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+  <!-- ── Header ─────────────────────────────────────────────────── -->
+  <header class="mts-header">
+    <div class="header-inner container-fluid">
+      <div class="header-title">
+        <img src="{{ url_for('static', filename='mts-logo.svg') }}" alt="MTS Logo" class="mts-logo" />
+        <div>
+          <h1>San Diego MTS</h1>
+          <p>Transit Schedule Dashboard</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Main ────────────────────────────────────────────────────── -->
+  <main class="container">
+
+    <!-- Filters -->
+    <section class="filter-card" aria-label="Route filters">
+      <div class="filter-grid">
+
+        <label for="routeSelect">
+          Route Number – Name
+          <select id="routeSelect" aria-label="Select a route">
+            <option value="">— Select a route —</option>
+            {% for opt in route_options %}
+            <option value="{{ opt.route_id }}">{{ opt.label }}</option>
+            {% endfor %}
+          </select>
+        </label>
+
+        <label for="directionSelect">
+          Route Direction
+          <select id="directionSelect" aria-label="Select a direction" disabled>
+            <option value="">— Select a direction —</option>
+          </select>
+        </label>
+
+        <div class="filter-action">
+          <button id="searchBtn" disabled>View Schedule</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section id="resultsSection" class="results-section" hidden>
+
+      <div class="results-header">
+        <h2 id="resultsTitle"></h2>
+        <span id="resultsCount" class="stop-badge"></span>
+      </div>
+
+      <div class="table-wrapper">
+        <table id="timetableTable" role="grid">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Arrival Time</th>
+              <th scope="col">Departure Time</th>
+              <th scope="col">Stop Name</th>
+            </tr>
+          </thead>
+          <tbody id="timetableBody"></tbody>
+        </table>
+      </div>
+
+    </section>
+
+    <!-- Empty / loading states -->
+    <div id="loadingState" class="state-message" hidden>
+      <span aria-busy="true">Loading schedule…</span>
+    </div>
+
+    <div id="emptyState" class="state-message" hidden>
+      <p>No schedule data found for the selected route and direction.</p>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────────── -->
+  <footer class="mts-footer">
+    <div class="container-fluid">
+      <small>Data provided by <a href="https://www.sdmts.com" target="_blank" rel="noopener">San Diego Metropolitan Transit System</a></small>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

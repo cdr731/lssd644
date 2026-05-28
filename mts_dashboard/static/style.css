@@ -1,0 +1,254 @@
+/* ── MTS brand colours ───────────────────────────────────────────── */
+:root {
+  --mts-blue:        #000099;
+  --mts-blue-dark:   #00006b;
+  --mts-blue-light:  #e8e8ff;
+  --mts-red:         #cc0000;
+  --mts-white:       #ffffff;
+  --row-odd:         #f5f5ff;
+  --row-even:        #ffffff;
+  --border-color:    #d0d0e8;
+}
+
+/* ── Reset / base ────────────────────────────────────────────────── */
+body {
+  background: #f0f0f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+/* ── Header ─────────────────────────────────────────────────────── */
+.mts-header {
+  background: var(--mts-blue);
+  color: var(--mts-white);
+  padding: 1rem 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--mts-white);
+  letter-spacing: 0.02em;
+}
+
+.header-title p {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  color: var(--mts-white);
+}
+
+.mts-logo {
+  height: 52px;
+  width: auto;
+}
+
+/* ── Filter card ─────────────────────────────────────────────────── */
+.filter-card {
+  background: var(--mts-white);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid var(--mts-blue);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr auto;
+  gap: 1.25rem;
+  align-items: end;
+}
+
+@media (max-width: 720px) {
+  .filter-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filter-grid label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.filter-grid select {
+  margin-top: 0.35rem;
+  border-color: var(--border-color);
+}
+
+.filter-grid select:focus {
+  border-color: var(--mts-blue);
+  box-shadow: 0 0 0 3px rgba(0,0,153,0.15);
+}
+
+.filter-action {
+  display: flex;
+  align-items: flex-end;
+}
+
+.filter-action button {
+  background: var(--mts-blue);
+  border-color: var(--mts-blue);
+  color: var(--mts-white);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.filter-action button:hover:not(:disabled) {
+  background: var(--mts-blue-dark);
+  border-color: var(--mts-blue-dark);
+}
+
+.filter-action button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Results section ─────────────────────────────────────────────── */
+.results-section {
+  background: var(--mts-white);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--mts-blue);
+  color: var(--mts-white);
+}
+
+.results-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--mts-white);
+}
+
+.stop-badge {
+  background: rgba(255,255,255,0.2);
+  color: var(--mts-white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 99px;
+  white-space: nowrap;
+}
+
+/* ── Table ───────────────────────────────────────────────────────── */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+#timetableTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+#timetableTable thead tr {
+  background: var(--mts-blue-light);
+}
+
+#timetableTable thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mts-blue);
+  border-bottom: 2px solid var(--border-color);
+  white-space: nowrap;
+}
+
+#timetableTable thead th:first-child {
+  width: 3.5rem;
+  text-align: center;
+}
+
+#timetableTable tbody tr:nth-child(odd) {
+  background: var(--row-odd);
+}
+
+#timetableTable tbody tr:nth-child(even) {
+  background: var(--row-even);
+}
+
+#timetableTable tbody tr:hover {
+  background: #d8d8f8;
+}
+
+#timetableTable tbody td {
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+#timetableTable tbody td:first-child {
+  text-align: center;
+  font-weight: 600;
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* time columns */
+#timetableTable tbody td:nth-child(2),
+#timetableTable tbody td:nth-child(3) {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+/* ── State messages ──────────────────────────────────────────────── */
+.state-message {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+.mts-footer {
+  background: var(--mts-blue);
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  padding: 0.85rem 0;
+  margin-top: auto;
+}
+
+.mts-footer a {
+  color: rgba(255,255,255,0.9);
+}
